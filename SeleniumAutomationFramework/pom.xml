@@ -3,4 +3,13 @@
   <groupId>com.baggiyam</groupId>
   <artifactId>SeleniumAutomationFramework</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+    <dependencies>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.49.0</version>
+        </dependency>
+
+    </dependencies>
 </project>
