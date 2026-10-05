@@ -37,9 +37,21 @@ public class FirstSeleniumTest {
 		password.clear();
 		password.sendKeys("secret_sauce");
 	loginButton.click();
+	String currentUrl = driver.getCurrentUrl();
+	System.out.println(currentUrl);
+	
+	
+		String TargetURL="https://www.saucedemo.com/inventory.html";
+		if (currentUrl.equals(TargetURL)) {
+			System.out.println("Login Successful");
+		}
+			else {
+				System.out.println("Login Failed");
+			}
+		}
 	
 		
-	}
+	
 
 	
 
