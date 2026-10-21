@@ -6,11 +6,11 @@ import org.openqa.selenium.WebDriver;
 public class HomePage {
 
     private WebDriver driver;
-
+    
     private By signupLoginLink = By.xpath("//a[normalize-space()='Signup / Login']");
 
     public HomePage(WebDriver driver) {
-        this.driver = driver;
+    	this.driver = driver;
     }
 
     public void clickSignupLogin() {
