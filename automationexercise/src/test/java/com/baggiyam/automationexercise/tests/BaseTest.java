@@ -7,6 +7,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BaseTest {
 
@@ -15,13 +18,30 @@ public class BaseTest {
     public void setUp() {
 
         // Start Chrome browser
-        driver = new ChromeDriver();
+    	ChromeOptions options = new ChromeOptions();
+    	options.addArguments(
+    		    "--host-resolver-rules=MAP pagead2.googlesyndication.com 0.0.0.0"
+    		);
+    	 // Disable Chrome password and address-saving prompts
+        Map<String, Object> prefs = new HashMap<>();
+
+        prefs.put("credentials_enable_service", false);
+        prefs.put("profile.password_manager_enabled", false);
+        prefs.put("autofill.profile_enabled", false);
+        prefs.put("autofill.credit_card_enabled", false);
+
+        options.setExperimentalOption("prefs", prefs);
+//https://pagead2.googlesyndication.com
+    	options.addArguments("--disable-extensions");
+    	options.addArguments("--disable-notifications");
+
+    	driver = new ChromeDriver(options);
 
         // Open Automation Exercise
         driver.get("https://automationexercise.com/");
 
         // Handle cookie/privacy preferences
-        handleCookiePreferences();
+       // handleCookiePreferences();
     }
 
     private void handleCookiePreferences() {
